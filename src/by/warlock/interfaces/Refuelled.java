@@ -1,4 +1,4 @@
-package by.warlock;
+package by.warlock.interfaces;
 
 public interface Refuelled {
     void refuel();
