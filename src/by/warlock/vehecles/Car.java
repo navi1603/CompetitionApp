@@ -3,10 +3,12 @@ package by.warlock.vehecles;
 import by.warlock.*;
 import by.warlock.interfaces.*;
 
-public class Car extends Vehicle implements Breakable, Refuelled, Mileagable, Accelerating, Handleable {
+public class Car extends Vehicle implements Breakable, Refuelled, Mileagable, Acceleratable {
+    private int fuel;
 
-    public Car(String model, int speed) {
+    public Car(String model, int speed, int fuel) {
         super(model, speed);
+        this.fuel = fuel;
     }
 
     @Override
@@ -16,12 +18,7 @@ public class Car extends Vehicle implements Breakable, Refuelled, Mileagable, Ac
 
     @Override
     public boolean isBroken() {
-        return false;
-    }
-
-    @Override
-    public void handle() {
-
+        return Math.random() < 0.75;
     }
 
     @Override
@@ -31,6 +28,15 @@ public class Car extends Vehicle implements Breakable, Refuelled, Mileagable, Ac
 
     @Override
     public void refuel() {
+        this.fuel++;
+    }
 
+    @Override
+    public void move() {
+        if (this.fuel < 1) {
+            refuel();
+            return;
+        }
+        super.move();
     }
 }

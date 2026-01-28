@@ -1,5 +1,5 @@
 package by.warlock.interfaces;
 
-public interface Loaded {
+public interface Loadable {
     void load();
 }

@@ -1,5 +1,5 @@
 package by.warlock.interfaces;
 
-public interface Accelerating {
+public interface Acceleratable {
     void accelerate();
 }

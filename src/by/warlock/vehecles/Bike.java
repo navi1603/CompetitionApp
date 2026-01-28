@@ -1,12 +1,12 @@
 package by.warlock.vehecles;
 
 import by.warlock.Vehicle;
-import by.warlock.interfaces.Accelerating;
+import by.warlock.interfaces.Acceleratable;
 import by.warlock.interfaces.Breakable;
 import by.warlock.interfaces.Mileagable;
 import by.warlock.interfaces.Refuelled;
 
-public class Bike extends Vehicle implements Breakable, Accelerating, Refuelled, Mileagable {
+public class Bike extends Vehicle implements Breakable, Acceleratable, Refuelled, Mileagable {
     public Bike(String model, int speed) {
         super(model, speed);
     }
@@ -18,7 +18,7 @@ public class Bike extends Vehicle implements Breakable, Accelerating, Refuelled,
 
     @Override
     public boolean isBroken() {
-        return false;
+        return Math.random() < 0.35;
     }
 
     @Override

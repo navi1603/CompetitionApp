@@ -3,7 +3,7 @@ package by.warlock.vehecles;
 import by.warlock.Vehicle;
 import by.warlock.interfaces.*;
 
-public class Truck extends Vehicle implements Breakable, Accelerating, Loaded, Mileagable, Refuelled {
+public class Truck extends Vehicle implements Breakable, Acceleratable, Loadable, Mileagable, Refuelled {
 
     public Truck(String model, int speed) {
         super(model, speed);
@@ -16,7 +16,7 @@ public class Truck extends Vehicle implements Breakable, Accelerating, Loaded, M
 
     @Override
     public boolean isBroken() {
-        return false;
+        return Math.random() < 0.65;
     }
 
     @Override
