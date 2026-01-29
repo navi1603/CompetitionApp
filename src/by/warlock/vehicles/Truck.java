@@ -17,7 +17,7 @@ public class Truck extends Vehicle implements Breakable, Refuelled, Loadable, Mi
 
     @Override
     public boolean isBroken() {
-        return Math.random() < 0.65;
+        return Math.random() < 0.35;
     }
 
     @Override
@@ -27,7 +27,7 @@ public class Truck extends Vehicle implements Breakable, Refuelled, Loadable, Mi
 
     @Override
     public boolean mileage() {
-        return odometer < x;
+        return odometer >= x;
     }
 
     @Override

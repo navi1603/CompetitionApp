@@ -11,7 +11,7 @@ public class Bicycle extends Vehicle implements Breakable {
 
     @Override
     public boolean isBroken() {
-        return Math.random() < 0.25;
+        return Math.random() < 0.10;
     }
 
     @Override

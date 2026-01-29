@@ -14,15 +14,19 @@ public class Car extends Vehicle implements Breakable, Refuelled, Acceleratable 
     }
 
     @Override
-    public void accelerate() {
+    public int accelerate() {
         double acceleration = Math.random();
-        this.speed += (acceleration < 0.3) ? (int) (acceleration * 10) : speed;
-        fuel -= (int) (acceleration * 10);
+
+        if(acceleration < 0.3) {
+            fuel -= (int) (acceleration * 10);
+            return (int) acceleration * 10;
+        }
+        return 0;
     }
 
     @Override
     public boolean isBroken() {
-        return Math.random() < 0.75;
+        return Math.random() < 0.45;
     }
 
     @Override
@@ -39,8 +43,7 @@ public class Car extends Vehicle implements Breakable, Refuelled, Acceleratable 
         if (isBroken()) {
             return;
         }
-        accelerate();
-        x += speed;
+        x += speed + accelerate();
         fuel -= fuelConsumption;
     }
 

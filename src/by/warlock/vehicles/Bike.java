@@ -15,8 +15,8 @@ public class Bike extends Vehicle implements Breakable, Acceleratable, Refuelled
     }
 
     @Override
-    public void accelerate() {
-
+    public int accelerate() {
+        return 0;
     }
 
     @Override

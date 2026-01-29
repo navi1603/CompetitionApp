@@ -10,7 +10,7 @@ public class Main {
 
         Car car = new Car("Lada", 60, 50, 10);
         Bicycle bicycle = new Bicycle("Aist", 30);
-        Truck truck = new Truck("MAZ", 50, 100, 100, 20);
+        Truck truck = new Truck("MAZ", 60, 1000, 100, 20);
 
         Vehicle []  vehicles = new Vehicle[] {car, bicycle, truck};
         Vehicle winner = competition.race(vehicles);
