@@ -2,7 +2,7 @@ package by.warlock;
 
 public abstract class Vehicle {
     private final String  model;
-    private int speed;
+    protected int speed;
     protected int x;
 
     public Vehicle(String model, int speed) {
@@ -11,17 +11,14 @@ public abstract class Vehicle {
         this.x = 0;
     }
 
-    public void move() {
-        this.x += speed;
-    }
+    public abstract void move();
+
     public String getModel() {
         return model;
     }
 
-    public int getSpeed() {
-        return speed;
-    }
-    public void setSpeed(int speed) {
-        this.speed = speed;
+    @Override
+    public String toString() {
+        return  model;
     }
 }

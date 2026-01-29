@@ -2,7 +2,6 @@ package by.warlock;
 
 public class Competition {
     private int distance;
-    private Vehicle[] vehicles;
 
     public Competition(int distance) {
         this.distance = distance;
@@ -10,10 +9,13 @@ public class Competition {
 
     public Vehicle race (Vehicle[] vehicles) {
         Vehicle winner  = null;
-        for (Vehicle vehicle : vehicles) {
-            vehicle.move();
-            if(vehicle.getX() == distance) {
-                winner = vehicle;
+        while(winner == null) {
+            for (Vehicle vehicle : vehicles) {
+                if (vehicle.x <= distance) {
+                    vehicle.move();
+                } else {
+                    winner = vehicle;
+                }
             }
         }
         return winner;
