@@ -1,17 +1,21 @@
 package by.warlock;
 
 public abstract class Vehicle {
-    private final String  model;
+    private final String model;
     protected int speed;
     protected int x;
 
     public Vehicle(String model, int speed) {
         this.model = model;
         this.speed = speed;
-        this.x = 0;
+        resetX();
     }
 
     public abstract void move();
+
+    public void resetX() {
+        this.x = 0;
+    }
 
     public String getModel() {
         return model;
@@ -19,6 +23,6 @@ public abstract class Vehicle {
 
     @Override
     public String toString() {
-        return  model;
+        return model;
     }
 }

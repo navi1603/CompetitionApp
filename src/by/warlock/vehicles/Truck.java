@@ -1,18 +1,21 @@
 package by.warlock.vehicles;
 
 import by.warlock.Vehicle;
-import by.warlock.interfaces.*;
+import by.warlock.interfaces.Breakable;
+import by.warlock.interfaces.Loadable;
+import by.warlock.interfaces.Mileagable;
+import by.warlock.interfaces.Refuelled;
 
 public class Truck extends Vehicle implements Breakable, Refuelled, Loadable, Mileagable {
     private int fuel;
     private final int fuelConsumption;
-    private final int odometer;
+    private int odometer;
 
-    public Truck(String model, int speed, int odometer, int fuel, int fuelConsumption) {
+    public Truck(String model, int speed, int fuel, int fuelConsumption) {
         super(model, speed);
         this.fuel = fuel;
         this.fuelConsumption = fuelConsumption;
-        this.odometer = odometer;
+        this.odometer = 0;
     }
 
     @Override
@@ -22,12 +25,12 @@ public class Truck extends Vehicle implements Breakable, Refuelled, Loadable, Mi
 
     @Override
     public void load() {
-        speed -= (int) (speed * 0.35);
+        speed -= (int) (speed * 35 / 100);
     }
 
     @Override
     public boolean mileage() {
-        return odometer >= x;
+        return odometer <= 1500;
     }
 
     @Override
@@ -46,14 +49,13 @@ public class Truck extends Vehicle implements Breakable, Refuelled, Loadable, Mi
         }
         if (mileage()) {
             x += speed;
+            odometer += speed;
             fuel -= fuelConsumption;
         }
     }
 
     @Override
     public String toString() {
-        return "Грузовик " + super.toString() +
-                " прошел дистанцию " + x +
-                " со скоростью " + speed;
+        return "Грузовик " + super.toString();
     }
 }

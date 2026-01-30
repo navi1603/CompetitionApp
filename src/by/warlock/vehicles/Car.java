@@ -1,9 +1,10 @@
 package by.warlock.vehicles;
 
-import by.warlock.*;
-import by.warlock.interfaces.*;
+import by.warlock.Vehicle;
+import by.warlock.interfaces.Breakable;
+import by.warlock.interfaces.Refuelled;
 
-public class Car extends Vehicle implements Breakable, Refuelled, Acceleratable {
+public class Car extends Vehicle implements Breakable, Refuelled {
     private int fuel;
     private final int fuelConsumption;
 
@@ -14,19 +15,8 @@ public class Car extends Vehicle implements Breakable, Refuelled, Acceleratable 
     }
 
     @Override
-    public int accelerate() {
-        double acceleration = Math.random();
-
-        if(acceleration < 0.3) {
-            fuel -= (int) (acceleration * 10);
-            return (int) acceleration * 10;
-        }
-        return 0;
-    }
-
-    @Override
     public boolean isBroken() {
-        return Math.random() < 0.45;
+        return Math.random() < 0.35;
     }
 
     @Override
@@ -43,14 +33,12 @@ public class Car extends Vehicle implements Breakable, Refuelled, Acceleratable 
         if (isBroken()) {
             return;
         }
-        x += speed + accelerate();
+        x += speed;
         fuel -= fuelConsumption;
     }
 
     @Override
     public String toString() {
-        return "Автомобиль " + super.toString() +
-                " прошел дистанцию " + x +
-                " со скоростью " + speed;
+        return "Автомобиль " + super.toString();
     }
 }

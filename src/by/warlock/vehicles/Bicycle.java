@@ -1,7 +1,7 @@
 package by.warlock.vehicles;
 
-import by.warlock.interfaces.Breakable;
 import by.warlock.Vehicle;
+import by.warlock.interfaces.Breakable;
 
 public class Bicycle extends Vehicle implements Breakable {
 
@@ -16,9 +16,14 @@ public class Bicycle extends Vehicle implements Breakable {
 
     @Override
     public void move() {
-        if(isBroken()) {
+        if (isBroken()) {
             return;
         }
         x += speed;
+    }
+
+    @Override
+    public String toString() {
+        return "Велосипед " + super.toString();
     }
 }

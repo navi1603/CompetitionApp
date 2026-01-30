@@ -7,14 +7,15 @@ public class Competition {
         this.distance = distance;
     }
 
-    public Vehicle race (Vehicle[] vehicles) {
-        Vehicle winner  = null;
-        while(winner == null) {
+    public Vehicle race(Vehicle[] vehicles) {
+        Vehicle winner = null;
+        while (winner == null) {
             for (Vehicle vehicle : vehicles) {
                 if (vehicle.x <= distance) {
                     vehicle.move();
                 } else {
                     winner = vehicle;
+                    break;
                 }
             }
         }
